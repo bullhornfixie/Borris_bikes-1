@@ -9,14 +9,13 @@ describe DockingStation do
     expect(subject).to respond_to(:docking_bike).with(1).argument
   end
   it "should have the bike we have just worked in the instance varaible once we have docked it" do
-    bike = Bike.new 
-    station = DockingStation.new 
+    bike = Bike.new
+    station = DockingStation.new
     station.docking_bike(bike)
-      expect(station.dock).to eq bike  
+      expect(station.dock).to eq bike
   end
   it "should raise error when you try to release a bike from an empty docking_station" do
-    station = DockingStation.new 
-      expect{station.release_bike}.to raise_error "docking station empty!"
+    expect{subject.release_bike}.to raise_error "docking station empty!"
   end
 end
 
@@ -25,4 +24,3 @@ describe :release_bike do
     expect(Bike.new).to respond_to :working?
   end
 end
-

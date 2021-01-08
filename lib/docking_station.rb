@@ -1,18 +1,20 @@
-class DockingStation 
+class DockingStation
   attr_reader :dock
-  
-  def release_bike 
+
+  def release_bike
+    if @dock.nil? 
+      raise 'docking station empty!'
+    end
     bike = Bike.new
   end
-  
+
   def docking_bike(bike)
     @dock = bike
   end
-  
-end 
 
-class Bike 
-  def working? 
+end
+
+class Bike
+  def working?
   end
-end 
-
+end
