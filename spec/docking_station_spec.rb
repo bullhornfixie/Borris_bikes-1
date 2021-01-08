@@ -17,6 +17,12 @@ describe DockingStation do
   it "should raise error when you try to release a bike from an empty docking_station" do
     expect{subject.release_bike}.to raise_error "docking station empty!"
   end
+
+  it "should raise an error if you dock a bike into a full docking station" do
+    bike = Bike.new
+    subject.docking_bike(bike)
+    expect{subject.docking_bike(Bike.new)}.to raise_error "dock full"
+  end
 end
 
 describe :release_bike do
